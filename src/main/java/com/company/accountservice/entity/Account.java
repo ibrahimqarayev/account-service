@@ -1,9 +1,13 @@
 package com.company.accountservice.entity;
 
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+
 import java.util.Objects;
+import java.util.UUID;
 
 public class Account {
-    private String id;
+    @PrimaryKey
+    private String id = UUID.randomUUID().toString();
     private String username;
     private String email;
     private String passwd;
