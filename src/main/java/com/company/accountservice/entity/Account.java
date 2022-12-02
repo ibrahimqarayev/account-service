@@ -1,5 +1,7 @@
 package com.company.accountservice.entity;
 
+import java.util.Objects;
+
 public class Account {
     private String id;
     private String username;
@@ -50,5 +52,18 @@ public class Account {
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(id, account.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
