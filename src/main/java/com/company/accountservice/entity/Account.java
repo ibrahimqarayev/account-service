@@ -4,11 +4,12 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
 @Table(value = "accounts")
-public class Account {
+public class Account implements Serializable {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
     @Column(value = "uname")
