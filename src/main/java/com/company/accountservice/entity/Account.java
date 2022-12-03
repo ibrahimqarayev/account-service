@@ -1,5 +1,6 @@
 package com.company.accountservice.entity;
 
+import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -10,9 +11,12 @@ import java.util.UUID;
 public class Account {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
+    @Column(value = "uname")
     private String username;
+    @Column(value = "email")
     private String email;
-    private String passwd;
+    @Column(value = "pwd")
+    private String password;
 
     public Account() {
     }
@@ -25,7 +29,7 @@ public class Account {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.passwd = passwd;
+        this.password = passwd;
     }
 
     public String getId() {
@@ -52,12 +56,12 @@ public class Account {
         this.email = email;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -79,7 +83,7 @@ public class Account {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", passwd='" + passwd + '\'' +
+                ", passwd='" + password + '\'' +
                 '}';
     }
 }
