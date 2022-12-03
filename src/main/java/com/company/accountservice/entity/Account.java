@@ -1,10 +1,12 @@
 package com.company.accountservice.entity;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.util.Objects;
 import java.util.UUID;
 
+@Table(value = "accounts")
 public class Account {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
