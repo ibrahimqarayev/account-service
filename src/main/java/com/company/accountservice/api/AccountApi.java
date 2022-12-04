@@ -21,17 +21,17 @@ public class AccountApi {
     }
 
     @PostMapping
-    public ResponseEntity<Account> save(Account account) {
+    public ResponseEntity<Account> save(@RequestBody Account account) {
         return ResponseEntity.ok(accountService.save(account));
     }
 
     @PutMapping
-    public ResponseEntity<Account> update(String id,Account account) {
-        return ResponseEntity.ok(accountService.update(id,account));
+    public ResponseEntity<Account> update(@PathVariable String id, @RequestBody Account account) {
+        return ResponseEntity.ok(accountService.update(id, account));
     }
 
     @DeleteMapping
-    public void delete(String id) {
+    public void delete(@PathVariable String id) {
         accountService.delete(id);
     }
 
