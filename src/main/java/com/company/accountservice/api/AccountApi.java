@@ -16,7 +16,7 @@ public class AccountApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Account> get(@PathVariable String id) {
+    public ResponseEntity<Account> get(@PathVariable("id") String id) {
         return ResponseEntity.ok(accountService.get(id));
     }
 
@@ -26,12 +26,12 @@ public class AccountApi {
     }
 
     @PutMapping
-    public ResponseEntity<Account> update(@PathVariable String id, @RequestBody Account account) {
+    public ResponseEntity<Account> update(@PathVariable("id") String id, @RequestBody Account account) {
         return ResponseEntity.ok(accountService.update(id, account));
     }
 
     @DeleteMapping
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable("id") String id) {
         accountService.delete(id);
     }
 
