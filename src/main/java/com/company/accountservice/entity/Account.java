@@ -1,5 +1,6 @@
 package com.company.accountservice.entity;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
+@NoArgsConstructor
 @Table(value = "accounts")
 public class Account implements Serializable {
     @PrimaryKey
@@ -24,8 +26,6 @@ public class Account implements Serializable {
     @Column(value = "is_active")
     private Boolean active;
 
-    public Account() {
-    }
 
     public Account(String id) {
         this.id = id;
