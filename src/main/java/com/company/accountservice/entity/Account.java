@@ -28,7 +28,6 @@ public class Account implements Serializable {
     @Column(value = "is_active")
     private Boolean active;
 
-
     public Account(String id) {
         this.id = id;
     }
