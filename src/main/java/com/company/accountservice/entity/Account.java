@@ -1,5 +1,6 @@
 package com.company.accountservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -11,6 +12,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(value = "accounts")
 public class Account implements Serializable {
     @PrimaryKey
@@ -29,13 +31,6 @@ public class Account implements Serializable {
 
     public Account(String id) {
         this.id = id;
-    }
-
-    public Account(String id, String username, String email, String passwd) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = passwd;
     }
 
     public String getId() {
