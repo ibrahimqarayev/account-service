@@ -2,18 +2,15 @@ package com.company.accountservice.api;
 
 import com.company.accountservice.entity.Account;
 import com.company.accountservice.service.AccountService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("account")
 public class AccountApi {
 
     private final AccountService accountService;
-
-    public AccountApi(AccountService accountService) {
-        this.accountService = accountService;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Account> get(@PathVariable("id") String id) {
